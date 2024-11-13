@@ -8,16 +8,6 @@ fi
 
 echo "Starting Ubuntu system hardening..."
 
-# Remove unauthorized users
-echo "Removing unauthorized users..."
-awk -F: '$3 >= 1000 {print $1}' /etc/passwd | grep -v "your_user" | while read -r user; do
-    echo "Removing user: $user"
-    userdel -r "$user"
-done
-
-# Check admin users
-echo "Checking admin users..."
-getent group sudo | cut -d: -f4
 
 # Configure firewall (reject incoming, allow outgoing)
 echo "Configuring UFW firewall..."
