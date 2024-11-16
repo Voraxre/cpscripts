@@ -129,16 +129,16 @@ sysctl -p /etc/sysctl.d/99-security-hardening.conf
 # 5. Configure password policies
 echo "=== Configuring password policies ==="
 # Update PAM password configuration
-sed -i '/pam_unix.so/s/$/ remember=5 minlen=12/' /etc/pam.d/common-password
-sed -i '/pam_cracklib.so/s/$/ ucredit=-1 lcredit=-1 dcredit=-1 ocredit=-1 minlen=12/' /etc/pam.d/common-password
+# sed -i '/pam_unix.so/s/$/ remember=5 minlen=12/' /etc/pam.d/common-password
+# sed -i '/pam_cracklib.so/s/$/ ucredit=-1 lcredit=-1 dcredit=-1 ocredit=-1 minlen=12/' /etc/pam.d/common-password
 
-# Update login.defs
-sed -i 's/^PASS_MAX_DAYS.*$/PASS_MAX_DAYS 90/' /etc/login.defs
-sed -i 's/^PASS_MIN_DAYS.*$/PASS_MIN_DAYS 10/' /etc/login.defs
-sed -i 's/^PASS_WARN_AGE.*$/PASS_WARN_AGE 7/' /etc/login.defs
+# # Update login.defs
+# sed -i 's/^PASS_MAX_DAYS.*$/PASS_MAX_DAYS 90/' /etc/login.defs
+# sed -i 's/^PASS_MIN_DAYS.*$/PASS_MIN_DAYS 10/' /etc/login.defs
+# sed -i 's/^PASS_WARN_AGE.*$/PASS_WARN_AGE 7/' /etc/login.defs
 
-# Configure login attempt limits
-echo "auth required pam_tally2.so deny=5 onerr=fail unlock_time=1800" >> /etc/pam.d/common-auth
+# # Configure login attempt limits
+# echo "auth required pam_tally2.so deny=5 onerr=fail unlock_time=1800" >> /etc/pam.d/common-auth
 
 # 6. Harden file permissions
 echo "=== Hardening file permissions ==="
