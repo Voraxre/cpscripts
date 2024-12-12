@@ -129,7 +129,7 @@ sysctl -p /etc/sysctl.d/99-security-hardening.conf
 # 5. Configure password policies
 echo "=== Configuring password policies ==="
 # Update PAM password configuration
-#sed -i '/pam_unix.so/s/$/ remember=5 minlen=12/' /etc/pam.d/common-password
+sed -i '/pam_unix.so/s/$/ remember=5 minlen=12/' /etc/pam.d/common-password
 #sed -i '/pam_cracklib.so/s/$/ ucredit=-1 lcredit=-1 dcredit=-1 ocredit=-1 minlen=12/' /etc/pam.d/common-password
 
 # Update login.defs
