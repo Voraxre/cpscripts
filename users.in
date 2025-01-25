@@ -1,0 +1,7 @@
+[admins]
+admin1:S3cureP@ss1
+admin2:TempPass123!
+
+[users]
+user1:Weakpass
+user2:Another!Pass123
